@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+:root {
+    --cor-primaria: #2A2A2A;
+    --cor-secundario: #ffffff;
+    --cor-terciaria: 00C4F0;
+    --cor-preta: #000;
+
+    --font-primario: "Abel", sans-serif;
+    --font-secundario: "Acme", sans-serif;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    box-sizing: border-box;
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundario);
+    font-family: var(--font-secundario);
+    font-size: 16px;
+    display: grid;
+    grid-template-areas:
+    "header header header"
+    "main main main"
+    "footer footer footer";
+    grid-gap: 0.6rem;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto 100vh auto;
+}
+
+.cabecalho {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13em;
+    padding-top: 1em;
+}
+
+.cabecalho__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+}
+
+.cabecalho__menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9em;
+}
+
+.cabecalho__menu__item {
+    font-size: 1rem;
+    color: var(--cor-secundario);
+    font-weight: 200;
+}
+
+.cabecalho__menu__item:hover {
+    border-bottom: 0.2em solid #00C4F0;
+}
+
+.principal {
+    grid-area: main;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0% 10%;
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+.principal__conteudo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.principal__conteudo__subtitulo {
+    font-family: var(--font-primario);
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.principal__conteudo__titulo {
+    font-family: var(--font-primario);
+    font-size: 5rem;
+    font-weight: 900;
+}
+
+.principal__conteudo__paragrafo {
+    font-family: var(--font-secundario);
+    font-size: 1.12rem;
+}
+
+.principal__conteudo__botao {
+    width: 25%;
+    background-color: orange;
+    padding: 2% 6%;
+    font-family: var(--font-secundario);
+    font-size: 1.5rem;
+    font-weight: bolder;
+    border-radius: 6px;
+    color: var(--cor-preta);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.principal__conteudo__botao:hover {
+    filter: drop-shadow(1px 1px 10px orange);
+}
+
+.principal__im {
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    width: 30%;
+    filter: drop-shadow(1px 1px 10px #00C4F0);
+}
+
+.rodape {
+    grid-area: footer;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px 0;
+    background-color: #414141;
+}
+
+@media (max-width: 800px) {
+    body {
+        display: block;
+    }
+
+    .cabecalho {
+        gap: 2em;
+        padding-bottom: 2em;
+    }
+    
+    .cabecalho__menu {
+        gap: 2em;
+    }
+
+    .principal {
+        flex-direction: column;
+        padding: 0 0;
+        gap: 2em;
+        justify-content: flex-start;
+    }
+
+    .principal__conteudo {
+        width: 80%;
+        margin: 2em auto;
+    }
+    
+    .principal__conteudo__botao {
+        display: block;
+        width: 50%;
+        margin: 0.5em 0;
+    }
+    
+    .principal__im {
+        position: static;
+        width: 50%;
+        padding: 1em;
+    }
+
+}
+
+@media (max-width: 400px) {
+    .cabecalho__menu {
+        display: none;
+    }
+
+    .principal__conteudo {
+        margin: 0 auto;
+    }
+
+    .principal__im {
+        width: 70%;
+        padding-bottom: 1em;
+    }
+}
